@@ -17,6 +17,9 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'Shougo/neocomplcache.vim'
 Plugin 'easymotion/vim-easymotion'
+
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 " ---------- Plugins
 
 " All of your Plugins must be added before the following line
@@ -44,8 +47,8 @@ syntax on
 " Vim UI
 "--------
 " color scheme
-set background=dark
-color solarized
+"set background=dark
+"color solarized
 
 " highlight current line
 au WinLeave * set nocursorline nocursorcolumn
@@ -236,6 +239,9 @@ nmap <F4> :IndentGuidesToggle<cr>
 nmap  <D-/> :
 nnoremap <leader>a :Ack
 nnoremap <leader>v V`]
+
+" Keybindings for plugin toggle
+let g:airline#extensions#tabline#enabled = 1
 
 "------------------
 " Useful Functions
