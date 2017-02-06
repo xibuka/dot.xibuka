@@ -1,20 +1,18 @@
 " --------------------- start of vim-plug ---------------------
 call plug#begin('~/.vim/plugged')
-
 " ---------- Plugins
 Plug 'altercation/vim-colors-solarized'
 Plug 'scrooloose/nerdtree'
-Plug 'ctrlpvim/ctrlp.vim'
+"Plug 'ctrlpvim/ctrlp.vim' 
 Plug 'Shougo/neocomplcache.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'majutsushi/tagbar'
 " ---------- Plugins
-
-" Initialize plugin system
-call plug#end()
+call plug#end()                      " Initialize plugin system
 " --------------------- end of vim-plug   ---------------------
 
 " encoding dectection
@@ -155,9 +153,8 @@ endif
 let g:neocomplcache_omni_patterns.erlang = '[a-zA-Z]\|:'
 " ========================================================================== "
 
-" ====================ctrlp================================================= "
-set wildignore+=*/tmp/*,*.so,*.o,*.a,*.obj,*.swp,*.zip,*.pyc,*.pyo,*.class,.DS_Store  " MacOSX/Linux
-let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
+" ==================== fzf ================================================= "
+nnoremap <silent> <C-C> :call fzf#run({'sink': 'edit'})<CR>
 " ========================================================================== "
 
 let g:airline#extensions#tabline#enabled = 1
