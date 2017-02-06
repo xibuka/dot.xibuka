@@ -80,6 +80,11 @@ autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=
 autocmd FileType html,htmldjango,xhtml,haml setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=0
 autocmd FileType sass,scss,css setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
 
+" Keybindings 
+" move among buffers with CTRL 
+map <C-J> :bnext<CR> 
+map <C-K> :bprev<CR>
+
 "-----------------
 " Plugin settings
 "-----------------
@@ -156,6 +161,14 @@ let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
 " ========================================================================== "
 
 let g:airline#extensions#tabline#enabled = 1
+
+" ====================ctrlp================================================= "
+map <C-h> :Gtags -f %<CR>
+" map <C-j> :GtagsCursor<CR>
+map <C-n> :cn<CR>
+map <C-p> :cp<CR>
+" ========================================================================== "
+
 
 "------------------
 " Useful Functions
