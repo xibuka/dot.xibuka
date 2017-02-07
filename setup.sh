@@ -9,6 +9,13 @@ BASHRC_MY=./bashrc
 # Install neccessary packages
 sudo yum -y install gcc git ncurses-devel
 
+# Install  tmux lnav
+sudo yum -y install tmux lnav
+
+# Install xsos
+curl -Lo /usr/local/bin/xsos bit.ly/xsos-direct
+chmod +x /usr/local/bin/xsos
+
 #install vim 8 or newer
 #echo -n "do you need to install vim 8?[y/N]"
 #read install_vim=${install_vim:-N}
@@ -38,11 +45,11 @@ cd -
 git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
 ~/.bash_it/install.sh
 
-# install redhat themes
-git clone https://github.com/dnoiz1/bash-it.git /tmp/bash_it_dnoizl
-cp -r  /tmp/bash_it_dnoizl/themes/redline   ~/.bash_it/custom/themes/
-cp -r  /tmp/bash_it_dnoizl/themes/powerline ~/.bash_it/custom/themes/
-rm -rf /tmp/bash_it_dnoizl
+# # install redhat themes
+# git clone https://github.com/dnoiz1/bash-it.git /tmp/bash_it_dnoizl
+# cp -r  /tmp/bash_it_dnoizl/themes/redline   ~/.bash_it/custom/themes/
+# cp -r  /tmp/bash_it_dnoizl/themes/powerline ~/.bash_it/custom/themes/
+# rm -rf /tmp/bash_it_dnoizl
 
 # install vim-plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
