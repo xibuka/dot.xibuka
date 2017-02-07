@@ -52,7 +52,8 @@ export SCM_CHECK=true
 # export BASH_IT_AUTOMATIC_RELOAD_AFTER_CONFIG_CHANGE=1
 
 # User specific aliases and functions
-export FZF_DEFAULT_COMMAND='vim'
+export FZF_DEFAULT_COMMAND='vim ""'
+export FZF_CTRL_T_COMMAND='vim ""'
 export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
 
 # Load Bash It

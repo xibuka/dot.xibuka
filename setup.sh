@@ -6,7 +6,6 @@ BASHRC=~/.bashrc
 BASHRC_BAK=~/.bashrc.bak
 BASHRC_MY=./bashrc
 
-
 # Install neccessary packages
 sudo yum -y install gcc git ncurses-devel
 
@@ -27,12 +26,12 @@ fi
 
 # install fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install &&
+~/.fzf/install 
 
 # install nerd-font
 git clone https://github.com/ryanoasis/nerd-fonts.git ~/.nerd-fonts
 cd ~/.nerd-fonts/
-./install.sh &&
+./install.sh 
 cd -
 
 # install bash-it
@@ -41,8 +40,8 @@ git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
 
 # install redhat themes
 git clone https://github.com/dnoiz1/bash-it.git /tmp/bash_it_dnoizl
-cp -r  /tmp/bash_it_dnoizl/themes/redline ~/.bash_it/custom/themes/
-cp -r  /tmp/bash_it_dnoizl/themes/powerline ~/.bash_it/custom/themes
+cp -r  /tmp/bash_it_dnoizl/themes/redline   ~/.bash_it/custom/themes/
+cp -r  /tmp/bash_it_dnoizl/themes/powerline ~/.bash_it/custom/themes/
 rm -rf /tmp/bash_it_dnoizl
 
 # install vim-plug
@@ -55,8 +54,9 @@ ln -s $PWD/$VIMRC_MY $VIMRC
 vim +PlugInstall +qall
 
 # bakup old bashrc and install new one
-cat $PWD/$BASHRC_MY >> $BASHRC
+mv $BASHRC $BASHRC_BAK
+ln -s $PWD/$BASHRC_MY $BASHRC
 
-source ~/.bashrc
+source $BASHRC
 
 echo DONE!!
