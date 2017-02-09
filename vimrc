@@ -11,6 +11,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'majutsushi/tagbar'
+Plug 'mileszs/ack.vim'
+
 " ---------- Plugins
 call plug#end()                      " Initialize plugin system
 " --------------------- end of vim-plug   ---------------------
@@ -65,10 +67,29 @@ set shiftwidth=4               " indent width
 set textwidth=79
 set smarttab
 set expandtab                  " expand tab to space
+
 if (exists('+colorcolumn'))    " 80th-column if you write code
   set colorcolumn=80
   highlight ColorColumn ctermbg=9
 endif
+
+" Need GNU Global and ctags be installed and run gtags
+" cscope
+if has("cscope")
+    nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>     " Find this C symbol //查找C语言符号，即查找函数名、宏、枚举值等出现的地方
+    nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>     " Find this definition //查找函数、宏、枚举等定义的位置，类似ctags的功能
+    nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>     " Find functions calling this function //查找调用本函数的函数
+    nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>     " Find assignments to //查找指定的字符串
+    nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>     " Find this egrep pattern //查找egrep模式，相当于egrep功能，但查找速度快多了
+    nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>     " Find this file //查找并打开文件，类似vim的find功能
+    nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>   " Find files #including this file //查找包含本文件的文件
+    nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>     " Find functions called by this function //查找本函数调用的函数
+endif
+
+" GNU Global
+let GtagsCscope_Auto_Load = 1
+let GtagsCscope_Auto_Map = 1
+let GtagsCscope_Quiet = 1
 
 autocmd FileType php setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
 autocmd FileType ruby setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
@@ -78,10 +99,21 @@ autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=
 autocmd FileType html,htmldjango,xhtml,haml setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=0
 autocmd FileType sass,scss,css setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
 
+
+
 " Keybindings 
 " move among buffers with CTRL 
 map <C-J> :bnext<CR> 
 map <C-K> :bprev<CR>
+" unmap arrow keys to encourage proper motion usage
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+inoremap <Up> <NOP>
+inoremap <Down> <NOP>
+inoremap <Left> <NOP>
+inoremap <Right> <NOP>
 
 "-----------------
 " Plugin settings
@@ -165,6 +197,13 @@ map <C-h> :Gtags -f %<CR>
 map <C-n> :cn<CR>
 map <C-p> :cp<CR>
 " ========================================================================== "
+
+" =============================== ack ====================================== "
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+" ========================================================================== "
+
 
 
 "------------------
