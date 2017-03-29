@@ -67,3 +67,5 @@ source $BASH_IT/bash_it.sh
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 alias htags='htags -DfsnowF'
+
+eval `dircolors ~/.dircolors`
