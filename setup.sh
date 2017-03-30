@@ -24,7 +24,14 @@ vim_version=$(vim --version | grep "^VIM" | awk {'print $5'})
 if [ ${vim_version%%.*} -lt 8 ] ; then
     git clone https://github.com/vim/vim.git
     cd $PWD/vim/src/
-    ./configure
+    ./configure 
+    ./configure --with-features=huge                                     \
+                --enable-multibyte                                       \
+                --enable-rubyinterp=yes                                  \
+                --enable-pythoninterp=yes                                \
+                --with-python-config-dir=/usr/lib64/python2.7/config     \
+                --enable-perlinterp=yes                                  \
+                --enable-luainterp=yes
     make
     sudo make install
     cd ../../
@@ -63,6 +70,9 @@ vim +PlugInstall +qall
 # bakup old bashrc and install new one
 mv $BASHRC $BASHRC_BAK
 ln -s $PWD/$BASHRC_MY $BASHRC
+
+wget --no-check-certificate https://raw.github.com/seebi/dircolors-solarized/master/dircolors.ansi-dark
+mv dircolors.ansi-dark .dircolors
 
 source $BASHRC
 

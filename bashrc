@@ -1,23 +1,24 @@
 #!/usr/bin/env bash
 
 # Path to the bash it configuration
-export BASH_IT="/home/wenshi/.bash_it"
+export BASH_IT="/root/.bash_it"
 
 # Lock and Load a custom theme file
 # location /.bash_it/themes/
-# export BASH_IT_THEME='bobby'
-## Redhat theme
-export BASH_IT_THEME='redline'
-# Set this to false to turn off version control status checking within the prompt for all themes
-export SCM_CHECK=true
-## Set Xterm/screen/Tmux title with only a short hostname.
-export SHORT_HOSTNAME=$(hostname -s)
-## enable sudo prompt
-export POWERLINE_PROMPT_USER_INFO_MODE="sudo"
-## prompt part string
-export POWERLINE_PROMPT="python_venv user_info hostname cwd scm"
-## enable your distro logo with
-export POWERLINE_PROMPT_DISTRO_LOGO="yes"
+export BASH_IT_THEME='bobby'
+
+## ## Redhat theme
+## export BASH_IT_THEME='redline'
+## # Set this to false to turn off version control status checking within the prompt for all themes
+## export SCM_CHECK=true
+## ## Set Xterm/screen/Tmux title with only a short hostname.
+## export SHORT_HOSTNAME=$(hostname -s)
+## ## enable sudo prompt
+## export POWERLINE_PROMPT_USER_INFO_MODE="sudo"
+## ## prompt part string
+## export POWERLINE_PROMPT="python_venv user_info hostname cwd scm"
+## ## enable your distro logo with
+## export POWERLINE_PROMPT_DISTRO_LOGO="yes"
 
 # (Advanced): Change this to the name of your remote repo if you
 # cloned bash-it with a remote other than origin such as `bash-it`.
