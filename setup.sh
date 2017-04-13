@@ -24,15 +24,24 @@ vim_version=$(vim --version | grep "^VIM" | awk {'print $5'})
 if [ ${vim_version%%.*} -lt 8 ] ; then
     git clone https://github.com/vim/vim.git
     cd $PWD/vim/src/
-    ./configure 
     ./configure --with-features=huge                                     \
                 --enable-multibyte                                       \
                 --enable-rubyinterp=yes                                  \
                 --enable-pythoninterp=yes                                \
                 --with-python-config-dir=/usr/lib64/python2.7/config     \
                 --enable-perlinterp=yes                                  \
-                --enable-luainterp=yes
-    make
+                --enable-luainterp=yes                                   \
+                --prefix=/usr/local/ \
+                --enable-fail-if-missing \
+                --enable-gui=no \
+                --enable-tclinterp=yes \
+                --enable-cscope=yes \
+                --enable-gpm \
+                --enable-cscope \
+                --enable-fontset \
+                --without-x \
+                --with-compiledby=koturn
+    make -j5
     sudo make install
     cd ../../
     rm -rf ./vim
