@@ -39,7 +39,7 @@ if [ ${vim_version%%.*} -lt 8 ] ; then
                 --enable-gpm \
                 --enable-cscope \
                 --enable-fontset \
-                --without-x \
+                --with-x \
                 --with-compiledby=koturn
     make -j5
     sudo make install
