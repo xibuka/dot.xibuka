@@ -28,13 +28,13 @@ filetype plugin indent on
 " Vim UI
 "--------
                                " color scheme
-"set background=dark
-"color solarized
+set background=dark
+color solarized
                                " highlight current line and column
 au WinLeave * set nocursorline nocursorcolumn
 au WinEnter * set cursorline cursorcolumn
 set cursorline 
-"set cursorcolumn
+set cursorcolumn
                                " search
 set incsearch
 set ignorecase                 " case insensitive searching
@@ -70,6 +70,7 @@ set shiftwidth=4               " indent width
 set textwidth=79
 set smarttab
 set expandtab                  " expand tab to space
+set clipboard=unnamedplus      " enable clipboard 
 
 " When you type the first tab, it will complete as much as possible, the second
 " tab hit will provide a list, the third and subsequent tabs will cycle through
@@ -133,7 +134,6 @@ if has("cscope")
     nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>   " Find files #including this file //查找包含本文件的文件
     nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>     " Find functions called by this function //查找本函数调用的函数
 endif
-
 
 
 "-----------------
@@ -258,3 +258,4 @@ autocmd BufReadPost *
 
 
 set gfn=DroidSansMonoForPowerline\ Nerd\ Font\ 9
+
