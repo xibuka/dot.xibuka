@@ -28,8 +28,10 @@ filetype plugin indent on
 " Vim UI
 "--------
                                " color scheme
-set background=dark
+let g:solarized_termcolors=256  
+set background=dark  
 color solarized
+colorscheme solarized 
                                " highlight current line and column
 au WinLeave * set nocursorline nocursorcolumn
 au WinEnter * set cursorline cursorcolumn
