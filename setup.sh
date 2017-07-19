@@ -61,7 +61,7 @@ function install_bash_it {
     else
         echo -n "Installing and configurate bash-it..."
         git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it &> /dev/null
-        ~/.bash_it/install.sh  <<EOF
+        ~/.bash_it/install.sh  <<EOF &> /dev/null
     
 EOF
         cat $PWD/$BASHRC_MY >> $BASHRC
@@ -101,7 +101,9 @@ function install_vim_plug {
           &> /dev/null
 
         # bakup old vimrc and install new one 
-        mv $VIMRC $VIMRC_BAK
+        if [ -f $VIMRC ]; then 
+            mv $VIMRC $VIMRC_BAK 
+        fi
         ln -s $PWD/$VIMRC_MY $VIMRC
         vim +PlugInstall +qall
         echo "Done"
