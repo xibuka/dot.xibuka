@@ -17,7 +17,7 @@ function install_rpms {
 # Install xsos
 function install_xsos {
     if [ -f /usr/local/bin/xsos  ]; then
-        echo "bash-it has already installed"
+        echo "xsos has already installed"
     else
         echo -n "Installing xsos..."
         curl -Lo /usr/local/bin/xsos bit.ly/xsos-direct &> /dev/null
@@ -110,7 +110,8 @@ function install_vim_plug {
 
         # install fzf
         echo -n "Installing and configure fzf..."
-        git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+        git clone --depth 1 \
+            https://github.com/junegunn/fzf.git ~/.fzf &> /dev/null
         ~/.fzf/install <<EOF &> /dev/null
         
         
