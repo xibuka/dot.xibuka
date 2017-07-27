@@ -8,7 +8,7 @@ BASHRC_MY=./bashrc
 
 # Install neccessary packages and useful tools
 function install_rpms {
-    PACKAGE_LIST="gcc git ncurses-devel cmake gcc-c++ python3-devel tmux lnav"
+    PACKAGE_LIST="gcc git ncurses-devel cmake gcc-c++ python-devel python3-devel tmux lnav"
     echo -n "Installing necesarry packages " $PACKAGE_LIST " ..."
     sudo yum -y install $PACKAGE_LIST               &> /dev/null
     echo "Done"
@@ -61,9 +61,8 @@ function install_bash_it {
     else
         echo -n "Installing and configurate bash-it..."
         git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it &> /dev/null
-        ~/.bash_it/install.sh  <<EOF &> /dev/null
-    
-EOF
+        ~/.bash_it/install.sh --silent &> /dev/null
+
         cat $PWD/$BASHRC_MY >> $BASHRC
         echo "Done"
     fi
