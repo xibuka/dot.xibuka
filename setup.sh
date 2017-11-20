@@ -112,8 +112,9 @@ function install_vim_plug {
         git clone --depth 1 \
             https://github.com/junegunn/fzf.git ~/.fzf &> /dev/null
         ~/.fzf/install <<EOF &> /dev/null
-        
-        
+y
+y
+y        
 EOF
         echo "Done"
 
