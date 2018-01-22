@@ -147,6 +147,7 @@ set pastetoggle=<F2>
 nmap <silent> <F4> :!ctags -R<CR>    " press F4 to re-build ctags
 nmap <F5> :TagbarToggle<cr>
 nmap <F6> :NERDTreeToggle<cr>
+map <F7> mzgg=G`z
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                              tagbar                                     "
