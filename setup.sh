@@ -5,6 +5,7 @@ VIMRC_BAK=~/.vimrc.bak
 VIMRC_MY=./vimrc
 BASHRC=~/.bashrc
 BASHRC_MY=./bashrc
+ZSHRC=~/.zshrc
 
 # Install neccessary packages and useful tools
 function install_rpms {
@@ -77,13 +78,11 @@ function install_ohmyzsh {
         git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh &> /dev/null
         cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
         sed -i ‘s/ZSH_THEME=\"robbyrussell\"/ZSH_THEME=\"agnoster\"/’ ~/.zshrc
-        chsh -s /bin/zsh
+        /bin/zsh
 
         echo "Done"
     fi
 }
-
-
 
 # makeup CLI
 function install_solarized_dark {
@@ -128,11 +127,7 @@ function install_vim_plug {
         echo -n "Installing and configure fzf..."
         git clone --depth 1 \
             https://github.com/junegunn/fzf.git ~/.fzf &> /dev/null
-        ~/.fzf/install <<EOF &> /dev/null
-y
-y
-y        
-EOF
+        ~/.fzf/install --key-bindings --completion --update-rc
         echo "Done"
 
         # complie YCM
@@ -160,6 +155,6 @@ install_solarized_dark
 install_vim_plug
 install_tmux_conf
 
-source $BASHRC
+source $ZSHRC
 
 echo DONE!!
