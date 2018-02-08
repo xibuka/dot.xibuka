@@ -8,7 +8,7 @@ BASHRC_MY=./bashrc
 
 # Install neccessary packages and useful tools
 function install_rpms {
-    PACKAGE_LIST="gcc git ncurses-devel cmake gcc-c++ python-devel python3-devel tmux lnav"
+    PACKAGE_LIST="gcc git ncurses-devel cmake gcc-c++ python-devel python3-devel tmux lnav zsh"
     echo -n "Installing necesarry packages " $PACKAGE_LIST " ..."
     sudo yum -y install $PACKAGE_LIST               &> /dev/null
     echo "Done"
@@ -67,6 +67,23 @@ function install_bash_it {
         echo "Done"
     fi
 }
+
+# install on-my-zsh
+function install_ohmyzsh {
+    if [ -d ~/.zshrc ]; then
+        echo "oh-my-zsh has already installed"
+    else
+        echo -n "Installing and configurate on_my_zsh..."
+        git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh &> /dev/null
+        cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+        sed -i ‘s/ZSH_THEME=\"robbyrussell\"/ZSH_THEME=\"agnoster\"/’ ~/.zshrc
+        chsh -s /bin/zsh
+
+        echo "Done"
+    fi
+}
+
+
 
 # makeup CLI
 function install_solarized_dark {
@@ -137,7 +154,8 @@ function install_tmux_conf {
 
 install_rpms
 install_xsos
-install_bash_it
+#install_bash_it
+install_ohmyzsh
 install_solarized_dark
 install_vim_plug
 install_tmux_conf
