@@ -27,22 +27,21 @@ filetype plugin indent on
 "--------
 " Vim UI
 "--------
-                               " color scheme
+" color scheme
 let g:solarized_termcolors=256  
 set background=dark  
-color solarized
 colorscheme solarized 
-                               " highlight current line and column
+" highlight current line and column
 au WinLeave * set nocursorline nocursorcolumn
 au WinEnter * set cursorline cursorcolumn
 set cursorline 
 set cursorcolumn
-                               " search
+" search
 set incsearch
 set ignorecase                 " case insensitive searching
 set smartcase                  " but become case sensitive if you type uppercase characters
 set hlsearch
-                               " editor settings
+" editor settings
 syntax on                      " enable syntax hightlight and completion
 set history=1000
 set nocompatible
@@ -63,7 +62,7 @@ set laststatus=2               " use 2 lines for the status bar
 set matchtime=2                " show matching bracket for 0.2 seconds
 set matchpairs+=<:>            " specially for html
 set ruler                      " show cursor position in status bar
-                               " Default Indentation
+" Default Indentation
 set autoindent
 set smartindent                " indent when
 set tabstop=4                  " tab width
@@ -83,8 +82,8 @@ set wildmenu            " completion with menu
 set listchars=tab:▸\ ,eol:¬
 
 if (exists('+colorcolumn'))    " 80th-column if you write code
-"  set colorcolumn=80
-"  highlight ColorColumn ctermbg=9
+    "  set colorcolumn=80
+    "  highlight ColorColumn ctermbg=9
 endif
 
 " GNU Global
@@ -109,8 +108,8 @@ let mapleader=" "
 let maplocalleader="-"
 
 " move among buffers with CTRL 
-map <C-J> :bnext<CR> 
-map <C-K> :bprev<CR>
+noremap <C-J> :bnext<CR> 
+noremap <C-K> :bprev<CR>
 " unmap arrow keys to encourage proper motion usage
 noremap <Up> <NOP>
 noremap <Down> <NOP>
@@ -177,14 +176,14 @@ let g:NERDTreeDirArrows           = 1
 let g:NERDTreeDirArrowExpandable  = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 let g:NERDTreeGlyphReadOnly       = 1
-let NERDTreeWinSize=30
-let NERDTreeChDirMode=2
-let NERDTreeIgnore=['\~$', '\.pyc$', '\.swp$']
-let NERDChristmasTree=0
-let NERDTreeShowBookmarks=1
-let NERDTreeWinPos = "right"
-let NERDTreeIgnore=[ '.pyc$', '.pyo$', '.obj$', '.o$', '.so$', '.egg$', '^.git$', '^.svn$', '^.hg$' ]
-let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\~$']
+let g:NERDTreeWinSize=30
+let g:NERDTreeChDirMode=2
+let g:NERDTreeIgnore=['\~$', '\.pyc$', '\.swp$']
+let g:NERDChristmasTree=0
+let g:NERDTreeShowBookmarks=1
+let g:NERDTreeWinPos = "right"
+let g:NERDTreeIgnore=[ '.pyc$', '.pyo$', '.obj$', '.o$', '.so$', '.egg$', '^.git$', '^.svn$', '^.hg$' ]
+let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\~$']
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif  " 只剩一个NERDTree窗口时退出vim
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -224,10 +223,10 @@ nnoremap <Leader>f :GFiles<CR>
 nnoremap <Leader>a :Ag<CR>
 nnoremap <Leader>k :bd<CR>
 command! FZFMru call fzf#run({
-\  'source':  v:oldfiles,
-\  'sink':    'e',
-\  'options': '-m -x +s',
-\  'down':    '40%'})
+            \  'source':  v:oldfiles,
+            \  'sink':    'e',
+            \  'options': '-m -x +s',
+            \  'down':    '40%'})
 nnoremap <Leader>r :FZFMru<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -242,7 +241,7 @@ let g:airline_theme = 'tomorrow'
 "                                 ack                                     "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
+    let g:ackprg = 'ag --vimgrep'
 endif
 
 
@@ -253,11 +252,11 @@ endif
 
 " When editing a file, always jump to the last cursor position
 autocmd BufReadPost *
-      \ if ! exists("g:leave_my_cursor_position_alone") |
-      \     if line("'\"") > 0 && line ("'\"") <= line("$") |
-      \         exe "normal g'\"" |
-      \     endif |
-      \ endif
+            \ if ! exists("g:leave_my_cursor_position_alone") |
+            \     if line("'\"") > 0 && line ("'\"") <= line("$") |
+            \         exe "normal g'\"" |
+            \     endif |
+            \ endif
 
 
 set gfn=DroidSansMonoForPowerline\ Nerd\ Font\ 9
