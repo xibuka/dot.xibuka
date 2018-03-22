@@ -220,7 +220,7 @@ nnoremap <leader>pc :YcmCompleter GoToDeclaration<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>x :Commands<CR>
 nnoremap <Leader>f :GFiles<CR>
-nnoremap <Leader>a :Ag<CR>
+nnoremap <Leader>a :Ack<CR>
 nnoremap <Leader>k :bd<CR>
 command! FZFMru call fzf#run({
             \  'source':  v:oldfiles,
@@ -240,11 +240,13 @@ let g:airline_theme = 'tomorrow'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 ack                                     "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+cnoreabbrev ag Ack
+cnoreabbrev aG Ack
+cnoreabbrev Ag Ack
+cnoreabbrev AG Ack
 if executable('ag')
-    let g:ackprg = 'ag --vimgrep'
+    let g:ackprg = 'ag --vimgrep --smart-case'
 endif
-
-
 
 "------------------
 " Useful Functions
