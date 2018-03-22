@@ -77,8 +77,7 @@ function install_ohmyzsh {
         echo -n "Installing and configurate on_my_zsh..."
         git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh &> /dev/null
         cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
-        sed -i ‘s/ZSH_THEME=\"robbyrussell\"/ZSH_THEME=\"agnoster\"/’ ~/.zshrc
-        /bin/zsh
+        #sed -i 's/ZSH_THEME=\"robbyrussell\"/ZSH_THEME=\"agnoster\"/' ~/.zshrc
 
         echo "Done"
     fi
@@ -95,17 +94,16 @@ function install_solarized_dark {
     fi
 }
 
-## # install nerd-font
-## git clone https://github.com/ryanoasis/nerd-fonts.git ~/.nerd-fonts
-## cd ~/.nerd-fonts/
-## ./install.sh 
-## cd -
-
-# # install redhat themes
-# git clone https://github.com/dnoiz1/bash-it.git /tmp/bash_it_dnoizl
-# cp -r  /tmp/bash_it_dnoizl/themes/redline   ~/.bash_it/custom/themes/
-# cp -r  /tmp/bash_it_dnoizl/themes/powerline ~/.bash_it/custom/themes/
-# rm -rf /tmp/bash_it_dnoizl
+# install font
+function install_font {
+    if [ ! -d ~/fonts ]; then
+        git clone https://github.com/powerline/fonts.git --depth=1 &> /dev/null
+        cd fonts
+        ./install.sh &>/dev/null
+        cd ..
+        rm -rf fonts
+    fi
+}
 
 # install vim-plug
 function install_vim_plug {
@@ -127,7 +125,7 @@ function install_vim_plug {
         echo -n "Installing and configure fzf..."
         git clone --depth 1 \
             https://github.com/junegunn/fzf.git ~/.fzf &> /dev/null
-        ~/.fzf/install --key-bindings --completion --update-rc
+        ~/.fzf/install --key-bindings --completion --update-rc &> /dev/null
         echo "Done"
 
         # complie YCM
@@ -154,6 +152,7 @@ install_ohmyzsh
 install_solarized_dark
 install_vim_plug
 install_tmux_conf
+install_font
 
 source $ZSHRC
 
