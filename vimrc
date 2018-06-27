@@ -22,7 +22,7 @@ call plug#end()                      " Initialize plugin system
 set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
 
 " enable filetype dectection and ft specific plugin/indent
-filetype plugin indent on
+"filetype plugin indent on " comment out for copy
 
 "--------
 " Vim UI
