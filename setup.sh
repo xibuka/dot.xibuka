@@ -7,23 +7,7 @@ BASHRC=~/.bashrc
 BASHRC_MY=./bashrc
 ZSHRC=~/.zshrc
 
-# need install below package first
-# Ubuntu: "curl gcc git cmake python-dev python3-devel tmux lnav zsh"
-# RedHat: "curl gcc git ncurses-devel cmake gcc-c++ python-devel python3-devel tmux lnav zsh"
-
-# install bash-it
-function install_bash_it {
-    if [ -d ~/.bash_it ]; then
-        echo "bash-it has already installed"
-    else
-        echo -n "Installing and configurate bash-it..."
-        git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
-        ~/.bash_it/install.sh --silent 
-
-        cat $PWD/$BASHRC_MY >> $BASHRC
-        echo "Done"
-    fi
-}
+# need run install.sh first
 
 # install on-my-zsh
 function install_ohmyzsh {
@@ -99,8 +83,11 @@ function install_tmux_conf {
     fi
 }
 
+# spacevim
+function install_spacevim {
+    curl -sLf https://spacevim.org/install.sh | bash
+}
 
-#install_bash_it
 #install_ohmyzsh
 #install_solarized_dark
 #install_vim_plug

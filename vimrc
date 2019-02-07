@@ -82,8 +82,8 @@ set wildmenu            " completion with menu
 set listchars=tab:▸\ ,eol:¬
 
 if (exists('+colorcolumn'))    " 80th-column if you write code
-    "  set colorcolumn=80
-    "  highlight ColorColumn ctermbg=9
+"  set colorcolumn=80
+"  highlight ColorColumn ctermbg=9
 endif
 
 " GNU Global
@@ -126,14 +126,14 @@ nnoremap <leader>- :sp<CR>
 " Need GNU Global and ctags be installed and run gtags
 " cscope
 if has("cscope")
-    nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>     " Find this C symbol //查找C语言符号，即查找函数名、宏、枚举值等出现的地方
-    nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>     " Find this definition //查找函数、宏、枚举等定义的位置，类似ctags的功能
-    nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>     " Find functions calling this function //查找调用本函数的函数
-    nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>     " Find assignments to //查找指定的字符串
-    nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>     " Find this egrep pattern //查找egrep模式，相当于egrep功能，但查找速度快多了
-    nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>     " Find this file //查找并打开文件，类似vim的find功能
-    nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>   " Find files #including this file //查找包含本文件的文件
-    nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>     " Find functions called by this function //查找本函数调用的函数
+nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>     " Find this C symbol //查找C语言符号，即查找函数名、宏、枚举值等出现的地方
+nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>     " Find this definition //查找函数、宏、枚举等定义的位置，类似ctags的功能
+nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>     " Find functions calling this function //查找调用本函数的函数
+nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>     " Find assignments to //查找指定的字符串
+nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>     " Find this egrep pattern //查找egrep模式，相当于egrep功能，但查找速度快多了
+nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>     " Find this file //查找并打开文件，类似vim的find功能
+nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>   " Find files #including this file //查找包含本文件的文件
+nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>     " Find functions called by this function //查找本函数调用的函数
 endif
 
 
@@ -223,10 +223,10 @@ nnoremap <Leader>f :GFiles<CR>
 nnoremap <Leader>a :Ack<CR>
 nnoremap <Leader>k :bd<CR>
 command! FZFMru call fzf#run({
-            \  'source':  v:oldfiles,
-            \  'sink':    'e',
-            \  'options': '-m -x +s',
-            \  'down':    '40%'})
+\  'source':  v:oldfiles,
+\  'sink':    'e',
+\  'options': '-m -x +s',
+\  'down':    '40%'})
 nnoremap <Leader>r :FZFMru<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -245,7 +245,7 @@ cnoreabbrev aG Ack
 cnoreabbrev Ag Ack
 cnoreabbrev AG Ack
 if executable('ag')
-    let g:ackprg = 'ag --vimgrep --smart-case'
+let g:ackprg = 'ag --vimgrep --smart-case'
 endif
 
 "------------------
@@ -254,11 +254,11 @@ endif
 
 " When editing a file, always jump to the last cursor position
 autocmd BufReadPost *
-            \ if ! exists("g:leave_my_cursor_position_alone") |
-            \     if line("'\"") > 0 && line ("'\"") <= line("$") |
-            \         exe "normal g'\"" |
-            \     endif |
-            \ endif
+\ if ! exists("g:leave_my_cursor_position_alone") |
+\     if line("'\"") > 0 && line ("'\"") <= line("$") |
+\         exe "normal g'\"" |
+\     endif |
+\ endif
 
 
 set gfn=DroidSansMonoForPowerline\ Nerd\ Font\ 9
