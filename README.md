@@ -1,3 +1,5 @@
+# use dotfile instead.
+
 # my_vimrc
 
 auto setup tool for Xibuka´s vim
